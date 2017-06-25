@@ -82,7 +82,6 @@ function addMarker(place, file){
       draggable: true,
     });
     infoBubble.bubble_.children[2].style.overflow="hidden";
-    //console.log(infoBubble);
     infoBubble.open(map);
     map.setCenter(myLatlng);
     map.setZoom(16);
@@ -145,11 +144,11 @@ function addMarker(place, file){
     }
 
     
-    
-      
+
 }
 
-// connect dropzonejs to map
+// sending through map dropzone
+
 $(document).ready(function() {
     Dropzone.autoDiscover = false;
     $("#map-canvas").dropzone(
@@ -180,59 +179,28 @@ $(document).ready(function() {
         // }
     });
 });
+
 // connect dropzonejs to button 'addPhoto'
-// $(document).ready(function() {
-//     Dropzone.autoDiscover = false;
-//     $("#upload-file-btn").dropzone(
-//         {
-//
-//             url: '/search/',
-//             clickable: true,
-//             acceptedFiles: 'image/jpeg',
-//             sending: function(file, xhr, formData) {
-//                 formData.append("csrfmiddlewaretoken", $("[name=csrfmiddlewaretoken]").val())},
-//             //previewsContainer: false,
-//             //previewTemplate: '<div class="dz-preview dz-file-preview"><img data-dz-thumbnail /></div>',
-//             success: function(file, data) {
-//                 // $("#progressbars")[0].style.display = "none";
-//                 if (data.longitude != null)
-//                     addMarker(data, file.previewElement.childNodes[1]);
-//                 else $('body').append('<div class="sf-flash">No GPS information</div>');
-//             },
-//             accept: function(file, done) {
-//                 if (file.type != "image/jpeg") {
-//                     done("Error! Files of this type are not accepted");
-//                     //console.log('invalid file');
-//                 }
-//                 else { done(); }
-//             },
-//             // uploadprogress: function(data) {
-//             //     $("#progressbars")[0].style.display = "initial";
-//             //     $("#progressbars")[0].style.width = data.upload.progress + '%';
-//             // }
-//         });
-// });
 
 $(document).ready(function() {
     Dropzone.autoDiscover = false;
     $("#upload-file-btn").dropzone(
         {
 
-            url: '/addphoto/',
+            url: '/search/',
             clickable: true,
             acceptedFiles: 'image/jpeg',
             sending: function(file, xhr, formData) {
                 formData.append("csrfmiddlewaretoken", $("[name=csrfmiddlewaretoken]").val())},
-            //previewsContainer: false,
-            //previewTemplate: '<div class="dz-preview dz-file-preview"><img data-dz-thumbnail /></div>',
             success: function(file, data) {
                 // $("#progressbars")[0].style.display = "none";
-                 $('body').append('<div class="sf-flash">Success</div>');
+                if (data.longitude != null)
+                    addMarker(data, file.previewElement.childNodes[1]);
+                else $('body').append('<div class="sf-flash">No GPS information</div>');
             },
             accept: function(file, done) {
                 if (file.type != "image/jpeg") {
                     done("Error! Files of this type are not accepted");
-                    //console.log('invalid file');
                 }
                 else { done(); }
             },
@@ -242,6 +210,36 @@ $(document).ready(function() {
             // }
         });
 });
+
+
+// sending through 'AddPhoto' button
+// $(document).ready(function() {
+//     Dropzone.autoDiscover = false;
+//     $("#upload-file-btn").dropzone(
+//         {
+//
+//             url: '/addphoto/',
+//             clickable: true,
+//             acceptedFiles: 'image/jpeg',
+//             sending: function(file, xhr, formData) {
+//                 formData.append("csrfmiddlewaretoken", $("[name=csrfmiddlewaretoken]").val())},
+//             success: function(file, data) {
+//                 if (data.longitude != null)
+//                     addMarker(data, file.previewElement.childNodes[1]);
+//                 else $('body').append('<div class="sf-flash">No GPS information</div>');
+//             },
+//             accept: function(file, done) {
+//                 if (file.type != "image/jpeg") {
+//                     done("Error! Files of this type are not accepted");
+//                 }
+//                 else { done(); }
+//             },
+//             // uploadprogress: function(data) {
+//             //     $("#progressbars")[0].style.display = "initial";
+//             //     $("#progressbars")[0].style.width = data.upload.progress + '%';
+//             // }
+//         });
+// });
 
 // Flash massage
 $(document).ready(function () {
