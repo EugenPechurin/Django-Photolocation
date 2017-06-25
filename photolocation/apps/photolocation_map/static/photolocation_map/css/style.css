@@ -1,0 +1,46 @@
+html, body, #map-canvas
+{
+    /* height of these elements */
+    height: 100%;
+
+    /* no margin around these elements */
+    margin: 0;
+
+    /* disable scrollbars */
+    overflow: hidden;
+
+    /* no padding within these elements */
+    padding: 0;
+}
+.navbar {
+    position: absolute;
+    margin: 0;
+    width: 100%;
+    top: 0px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-width: 0px;
+}
+.dz-preview {
+    display: none;
+}
+
+.btn-default {
+    background-color: transparent;
+    color: #fff;
+    border-color: #919191;
+}
+
+.btn-default:hover {
+    background-color: #2b2b2b;
+    color: white;
+}
+
+.btn-default:active {
+    background-color: #2b2b2b!important;
+    color: white!important;
+}
+
+.btn-default:focus {
+    background-color: #2b2b2b;
+    color: white;
+}

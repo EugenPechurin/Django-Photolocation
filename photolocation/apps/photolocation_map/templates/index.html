@@ -1,0 +1,20 @@
+{% extends 'bootstrap3.html' %}
+{% load bootstrap3 %}
+{% load fontawesome %}
+
+{% block bootstrap3_content %}
+    {% csrf_token %}
+            <form id="map-canvas" action="{% url 'search' %}" method="post" enctype="multipart/form-data"></form>
+{% endblock %}
+
+{% block navbar %}
+    {% include 'navbar.html' %}
+{% endblock %}
+
+{% block about %}
+    {% include 'about.html' %}
+{% endblock %}
+
+{% block login %}
+    {% include 'login.html' %}
+{% endblock %}

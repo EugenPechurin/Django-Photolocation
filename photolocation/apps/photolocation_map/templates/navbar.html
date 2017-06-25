@@ -1,0 +1,12 @@
+<nav class="navbar navbar-inverse bg-inverse">
+    <div class="container">
+        <a class="navbar-brand brand" data-toggle="modal" href="#about"><i class="fa fa-map-marker"></i> PhotoLocation</a>
+        {% if username %}
+            <button class="btn btn-default navbar-btn navbar-right" id="logout">Log out({{ username }})</button>
+        {% else %}
+            <button class="btn btn-default navbar-btn navbar-right" id="log in" type="button" data-toggle="modal" href="#myModal">Log in</button>
+        {% endif %}
+        <button class="btn btn-default navbar-btn navbar-right" id="upload-file-btn" type="button"  >Add photo</button>
+
+    </div>
+</nav>
