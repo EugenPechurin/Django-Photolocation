@@ -10,7 +10,7 @@ from photolocation.apps.photolocation_map.models import UploadFile
 
 
 def index(request):
-    return render(request, 'index.html', {'username': auth.get_user(request)})
+    return render(request, 'index.html', {'username': auth.get_user(request).username})
 
 
 # @csrf_exempt

@@ -247,26 +247,54 @@ $(document).ready(function () {
 
 });
 
-// function ajaxPost(file)
+
+// function ajaxPost(form)
 // {
-//     //console.log(file);
-//     var form_data = new FormData(file);
+//     event.preventDefault();
+//     console.log(form.username);
+//     var form_data = new FormData(form);
+//     console.log(form_data);
 //     $.ajax({
 //         type: 'POST',
-//         url: '/search/',
-//         data: form_data,
-//         contentType: false,
-//         cache: false,
-//         processData: false,
-//         //async: false,
-//         success: function(data) {
+//         url: '/auth/login/',
+//         data: $("form[form-signin]").serialize(),
+//         sending: function(file, xhr, formData) {
+//             formData.append("csrfmiddlewaretoken", $("[name=csrfmiddlewaretoken]").val())},
+//         success: function() {
 //
-//             //console.log('Success!');
+//             console.log('Success!');
 //             //console.log(data);
-//         },
+//         }
 //     })
-//     .done(function( data ) {addMarker(data, $("#file").val())});
+//     .done(function( data ) {console.log('Done!');});
 // }
 
+// $("#form-signin")
+//     .ajaxForm({
+//         url: 'server.php',
+//         type: 'post',
+//         success:  function() {
+//             console.log('Success!');
+//         }});
 
-
+$(document).ready(function () {
+    $('.form-signin').submit(function(e) {
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: '/auth/login/',
+            data: $(".form-signin").serialize(),
+            // sending: function (file, xhr, formData) {
+            //     formData.append("csrfmiddlewaretoken", $("[name=csrfmiddlewaretoken]").val())
+            // },
+            success: function () {
+                $('#myModal').modal('toggle');
+                $('#login').remove();
+                $('#upload-file-btn')
+                    .before('<a class="btn btn-default navbar-btn navbar-right" id="logout" href="/auth/logout/">Log out</a>');
+            },
+        }).done(function (e, data) {
+            console.log(data);
+        });
+    });
+});

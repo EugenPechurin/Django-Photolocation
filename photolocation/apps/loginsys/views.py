@@ -4,9 +4,13 @@ from django.shortcuts import render_to_response, redirect, render
 from django.contrib import auth
 from django.template.context_processors import csrf
 from django.contrib.auth.forms import UserCreationForm
-
+from django.http import JsonResponse
 
 # Create your views here.
+from django.views.decorators.csrf import csrf_exempt
+
+
+# @csrf_exempt
 def login(request):
     args = {}
     if request.POST:
@@ -15,7 +19,8 @@ def login(request):
         user = auth.authenticate(username=username, password=password)
         if user is not None:
             auth.login(request, user)
-            return render(request, 'index.html')
+            print('login')
+            return JsonResponse ({'answe': 'ok'}) #render(request, 'index.html')
         else:
             args['login_error'] = "Пользователь не найден"
             return render(request, 'login.html', args)
