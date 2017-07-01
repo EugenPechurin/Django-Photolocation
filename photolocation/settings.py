@@ -29,7 +29,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+# SITE_ID = 1
 # Application definition
 
 INSTALLED_APPS = [
@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'photolocation.apps.photolocation_map',
     'bootstrap3',
     'fontawesome',
-    'photolocation.apps.loginsys'
+    'photolocation.apps.loginsys',
+    'photolocation.apps.gallery'
 ]
 
 MIDDLEWARE = [
@@ -125,5 +126,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = 'photolocation/apps/photolocation_map/media'
-MEDIA_URL = "/image/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "../media/")
+MEDIA_URL = '/media/'
+

@@ -16,9 +16,28 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from photolocation.apps.photolocation_map import urls
+# from django.contrib.sitemaps.views import sitemap
+# from photologue.sitemaps import GallerySitemap, PhotoSitemap
+from django.conf import settings
+from django.conf.urls.static import static
+from photolocation.apps.gallery import views as gallery
+
+# sitemaps = {
+# 'photologue_galleries': GallerySitemap,
+# 'photologue_photos': PhotoSitemap,
+# }
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^gallery/', gallery.gallery, name='gallery'),
     url(r'^auth/', include('photolocation.apps.loginsys.urls')),
+    # url(r'^photologue/', include('photologue.urls', namespace='photologue')),
+    # url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},
+    #     name='django.contrib.sitemaps.views.sitemap'),
     url(r'', include('photolocation.apps.photolocation_map.urls'))
 ]
+
+if settings.DEBUG:
+    pass
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

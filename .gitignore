@@ -1,4 +1,13 @@
-D:\DjangoPrj\photolocationDjango\photolocation\apps\photolocation_map\templates\google_key.html/
-D:\DjangoPrj\photolocationDjango\_windows/
-D:\DjangoPrj\photolocationDjango\codestyles/
-D:\DjangoPrj\photolocationDjango\inspection/
+photolocation/apps/photolocation_map/templates/google_key.html/
+_windows/
+codestyles/
+inspection/
+.idea/
+db.sqlite3
+photolocation/__pycache__/
+photolocation/apps/__pycache__/
+photolocation/apps/loginsys/__pycache__/
+photolocation/apps/loginsys/migrations/__pycache__/
+photolocation/apps/photolocation_map/__pycache__/
+photolocation/apps/photolocation_map/migrations/__pycache__/
+photolocation/apps/photolocation_map/static/photolocation_map/js/facebook.js

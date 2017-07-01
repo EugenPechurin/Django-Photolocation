@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}MyBlog{% endblock %}</title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css">
+    {% load static %}
+    <link href={% static "photolocation_map/fontawesome/css/font-awesome.css" %} type="text/css" rel="stylesheet">
+    <link href={% static "photolocation_map/css/bootstrap.css" %} type="text/css" rel="stylesheet">
+    <link href={% static "photolocation_map/css/style.css" %} type="text/css" rel="stylesheet">
+    {% block style %}{% endblock %}
+</head>
+<body>
+{% block content %}Contenet{% endblock %}
+
+{% block navbar %}Navbar{% endblock %}
+
+{% block about %}About{% endblock %}
+
+{% block login %}{% endblock %}
+</body>
+{% block add_script %}
+    {% load static %}
+    <script src={% static "../static/photolocation_map/js/jquery-3.2.1.min.js" %}></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSGeJhzs-P1lZoLoLfhdDaMEV0Oi8x2c8&language=uk&v=3.exp"></script>
+    <script src={% static "photolocation_map/js/scripts.js" %}></script>
+    <script src={% static "photolocation_map/js/dropzone.js" %}></script>
+    <script src={% static "photolocation_map/js/infobubble.js" %}></script>
+    <script src={% static "photolocation_map/js/jquery.sf-flash.js" %}></script>
+    <script src={% static "photolocation_map/js/facebook.js" %}></script>
+
+{% endblock %}
+</html>

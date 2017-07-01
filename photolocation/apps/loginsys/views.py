@@ -23,7 +23,7 @@ def login(request):
             return JsonResponse ({'answe': 'ok'}) #render(request, 'index.html')
         else:
             args['login_error'] = "Пользователь не найден"
-            return render(request, 'login.html', args)
+            return JsonResponse ({'answe': 'error'}) #render(request, 'login.html', args)
     else:
         return render(request, 'login.html')
 

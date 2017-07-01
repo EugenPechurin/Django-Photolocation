@@ -10,6 +10,13 @@ from photolocation.apps.photolocation_map.models import UploadFile
 
 
 def index(request):
+    if request.user.is_authenticated:
+        print(request.user)
+        photos = UploadFile.objects.filter(user=request.user)
+        context = {
+            "photos": photos,
+        }
+        return render(request, 'index.html', context)
     return render(request, 'index.html', {'username': auth.get_user(request).username})
 
 
@@ -24,6 +31,7 @@ def search(request):
             return JsonResponse({"latitude": gps[0], "longitude": gps[1]})
         return JsonResponse({"Error": "Error"})
 
+
 def addphoto(request):
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)
@@ -36,3 +44,5 @@ def addphoto(request):
         "form": form,
     }
     return render(request, "post_form.html", context)
+
+

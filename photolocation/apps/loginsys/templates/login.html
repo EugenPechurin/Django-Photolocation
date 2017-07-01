@@ -1,5 +1,6 @@
+
  <!-- Modal login -->
-    <div id="myModal" class="modal fade bd-example-modal-sm" role="dialog">
+    <div id="siginModal" class="modal fade bd-example-modal-sm" role="dialog">
         <div class="modal-dialog modal-sm">
 
             <!-- Modal content-->
@@ -22,8 +23,12 @@
 {#                                <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me#}
 {#                            </label>#}
                             <button class="btn btn-lg btn-primary btn-block" type="submit" >Login</button>
-                            <a href="/auth"
                         </form>
+                        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+                        </fb:login-button>
+
+                        <div id="status">
+                        </div>
                     </div>
 
                 </div>
