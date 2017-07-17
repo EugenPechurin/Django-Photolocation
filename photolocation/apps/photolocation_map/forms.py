@@ -7,6 +7,5 @@ class UploadFileForm(forms.ModelForm):
     class Meta:
         model = UploadFile
         fields = [
-            "user",
-            "image",
+            "file",
         ]

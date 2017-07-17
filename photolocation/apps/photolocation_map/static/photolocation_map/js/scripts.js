@@ -199,11 +199,13 @@ $(document).ready(function () {
     $("#upload-file-btn").dropzone(
         {
 
-            url: '/search/',
+            url: '/addphoto/',
             clickable: true,
             acceptedFiles: 'image/jpeg',
             sending: function (file, xhr, formData) {
-                formData.append("csrfmiddlewaretoken", $("[name=csrfmiddlewaretoken]").val())
+
+                formData.append("csrfmiddlewaretoken", $("[name=csrfmiddlewaretoken]").val());
+                // console.log(xhr.getElementById('user'));
             },
             success: function (file, data) {
                 // $("#progressbars")[0].style.display = "none";
@@ -273,7 +275,7 @@ $(document).ready(function () {
         }).done(function () {
             $('#siginModal').modal('toggle');
             $('#login').replaceWith('<a class="navbar-btn btn-sigin navbar-right" id="logout" href="/auth/logout/">Log out</a>');
-            $('#addPhoto').after('<li><a href="/gallery/" data-toggle="modal">Gallery</a></li>');
+            $('#addPhoto').after('<li><a href="#galleryModal" data-toggle="modal" data-toggle="modal">Gallery</a></li>');
         });
     });
 });

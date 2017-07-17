@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Gallery{% endblock %}</title>
+    {% load static %}
+    <link href={% static "../static/gallery/gallery.css" %} type="text/css" rel="stylesheet">
+    {% block style %}{% endblock %}
+</head>
+<body>
+<section>
+<div class="picture">
+    {% for photo in photos %}
+        <div class="picture">
+            <img class="images" src="{{ photo.file.url }}" alt="">
+        </div>
+    {% endfor %}
+</div>
+</section>

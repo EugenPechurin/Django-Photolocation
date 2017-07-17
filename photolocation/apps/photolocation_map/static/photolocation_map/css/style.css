@@ -63,7 +63,7 @@ html, body, #map-canvas
     text-decoration: none;
 }
 
-.modal-dialog{
+.modal-gallery{
     width: 90%;
 }
 
@@ -75,7 +75,7 @@ html, body, #map-canvas
     display: flex;
     flex-wrap: wrap;
 }
-.imges{
+.images{
     height: 200px;
     flex-grow: 1;
     object-fit: cover;
